@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="#" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch-a-Sketch</title>
+    <script src="js-file.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="grid-bg"></div>
+      <div class="tools">
+        <div class="button-container">
+          <button id="wipe">Wipe</button>
+          <button id="rainbow">Rainbow</button>
+          <button id="pencil">Pencil</button>
+        </div>
+
+        <div class="slide-container">
+          <input
+            type="range"
+            min="16"
+            max="48"
+            value="32"
+            step="1"
+            id="slider"
+          />
+          <p id="slider-output"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

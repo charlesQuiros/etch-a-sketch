@@ -1,0 +1,174 @@
+:root {
+  --grid-num: 1;
+  --rainbow-color: "white";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: whitesmoke;
+}
+
+#container {
+}
+
+#grid-bg {
+  margin: 75px auto;
+  height: 650px;
+  width: 650px;
+  background-color: white;
+  /* TODO consider making the box-shadow colors change over time */
+  box-shadow: 1px 5px 10px wheat;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-num), 1fr);
+  grid-template-rows: repeat(var(--grid-num), 1fr);
+}
+
+.wipe {
+  animation: circle-in-hesitate 1.5s;
+}
+
+@keyframes circle-in-hesitate {
+  0% {
+    clip-path: circle(0%);
+  }
+  40% {
+    clip-path: circle(40%);
+  }
+  100% {
+    clip-path: circle(125%);
+  }
+}
+
+[transition-style="in:circle:hesitate"] {
+  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-hesitate both;
+}
+
+[transition-style="in:circle:center"] {
+  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
+}
+
+.grid-item {
+  height: 100%;
+  width: 100%;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+}
+
+.pencil {
+  background-color: salmon;
+  border-radius: 50%;
+}
+
+.rainbow {
+  background-color: var(--rainbow-color);
+  border-radius: 50%;
+}
+
+.pencil:hover,
+.rainbow:hover {
+  animation-duration: 1s;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.button-container {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+button {
+  -webkit-appearance: none;
+  height: 25px;
+  width: 100px;
+  border: 1px solid salmon;
+  border-radius: 5px;
+  color: salmon;
+  background-color: white;
+  opacity: 0.8;
+}
+
+button:hover {
+  box-shadow: 2px 2px 5px 1px wheat;
+  opacity: 1;
+}
+
+button:active {
+  transform: scale(1.1);
+  border: 2px solid salmon;
+}
+
+.slide-container {
+  width: 200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: salmon;
+  outline: none;
+  opacity: 0.8;
+  border-radius: 10px;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin-top: 30px;
+}
+
+#slider:hover {
+  opacity: 1;
+  box-shadow: 2px 2px 5px 1px wheat;
+}
+
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background-color: salmon; /* Green background */
+  border-radius: 50%;
+  cursor: pointer; /* Cursor on hover */
+}
+
+#slider::-moz-range-thumb {
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background-color: salmon; /* Green background */
+  border-radius: 50%;
+  cursor: pointer; /* Cursor on hover */
+}
+
+#slider-output {
+  margin: 10px;
+  text-align: center;
+  font-size: 26px;
+  color: salmon;
+  font-family: Arial, Helvetica, sans-serif;
+}
